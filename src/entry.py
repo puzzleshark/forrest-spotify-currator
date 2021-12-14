@@ -2,49 +2,16 @@ import asyncio
 import re
 import time
 import secrets
-
-
+import rxiter
 from webdriver import get_web_driver
 
-
-class StdOutIterableSingleton:
-
-    def __init__(self, proc):
-        self.stdout_stream = proc.stdout
-        self.current_output = []
-        self.done = False
-        self.lock = asyncio.Lock()
-
-    def __aiter__(self):
-        return StdOutIterator(self)
-
-    async def _read_char(self):
-        value = (await self.stdout_stream.read(1)).decode('unicode_escape')
-        if value == '':
-            raise StopAsyncIteration
-        else:
-            self.current_output.append(value)
-        return value
-
-
-class StdOutIterator:
-
-    def __init__(self, std_out_iterable):
-        self.std_out_iterable = std_out_iterable
-        self.count = 0
-
-    async def __anext__(self):
-        async with self.std_out_iterable.lock:
-            if self.count < len(self.std_out_iterable.current_output):
-                value = self.std_out_iterable.current_output[self.count]
-                self.count += 1
-                return value
-            if self.std_out_iterable.done:
-                raise StopAsyncIteration
-            else:
-                value = await self.std_out_iterable._read_char()
-                self.count += 1
-                return value
+@rxiter.repeat
+async def read_stream_out(stream):
+    value = (await stream.read(1)).decode('unicode_escape')
+    if value == '':
+        raise StopAsyncIteration
+    else:
+        yield value
 
 
 async def print_output(output):
@@ -101,11 +68,10 @@ async def main():
         stdout=asyncio.subprocess.PIPE,
     )
 
-    output = StdOutIterableSingleton(proc)
+    # print the output
+    printing_task = asyncio.create_task(print_output(read_stream_out(proc.stdout)))
 
-    printing_task = asyncio.create_task(print_output(output))
-
-    async for line in line_by_line(output):
+    async for line in line_by_line(read_stream_out(proc.stdout)):
         match = re.search('Go to the following URL: (https://.*)', line)
         if match is not None:
             url = match.group(1)
