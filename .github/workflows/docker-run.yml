@@ -1,0 +1,19 @@
+name: Docker Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+  - cron: "0 20 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag curatorlocal
+    - name: Run the Docker image
+      run: docker run -e PLAYLIST_ID='${{ secrets.PLAYLIST_ID }}' -e CLIENT_ID='${{ secrets.CLIENT_ID }}' -e CLIENT_SECRET='${{ secrets.CLIENT_SECRET }}' -e USERNAME='${{ secrets.USERNAME }}' -e PASSWORD='${{ secrets.PASSWORD }}' curatorlocal
