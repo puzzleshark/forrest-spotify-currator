@@ -3,4 +3,5 @@ spotipy
 librosa
 selenium
 ruamel.yaml
+functools
 rxiter
