@@ -1,6 +1,6 @@
 # Spotify Forrest Music Curator
 
-## Prerequisates
+## Prerequisites
 
 You have a spotify account, and a spotify developer account. In your spotify developer account create a new app, with the redirect uri of "fdsifds".
 
