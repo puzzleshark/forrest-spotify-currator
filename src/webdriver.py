@@ -20,7 +20,6 @@ def get_web_driver():
             chrome_prefs["profile.default_content_settings"] = {"images": 2}
             return chrome_options
 
-
         return webdriver.Chrome(options=set_chrome_options())
 
     elif platform.system() == "Darwin": # OSX
