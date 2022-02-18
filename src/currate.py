@@ -11,9 +11,13 @@ MP3_FOLDER = 'music'
 
 
 def download_playlist(folder_name):
+    print("creating folder")
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
+    print("created dirs")
+    print("starting download")
     os.system(f'spotdl https://open.spotify.com/playlist/{secrets.PLAYLIST_ID} -o {folder_name}')
+    print("finished download")
     return os.listdir(folder_name)
 
 
