@@ -42,6 +42,8 @@ if __name__ == '__main__':
 
     filenames = download_playlist(MP3_FOLDER)
 
+    print("downloaded playlist")
+
     auth = SpotifyOAuth(
         scope=["playlist-modify-public", "playlist-modify-private"],
         username=secrets.USERNAME,
@@ -51,9 +53,15 @@ if __name__ == '__main__':
         open_browser=False,
     )
 
+    print("authenticating...")
+
     spotify = spotipy.Spotify(oauth_manager=auth)
 
+    print("have spotify object")
+
     results = spotify.playlist_items(f"spotify:playlist:{secrets.PLAYLIST_ID}")
+
+    print("have results")
 
     for item in results['items']:
         track = item['track']
