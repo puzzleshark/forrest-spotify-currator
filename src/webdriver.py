@@ -11,6 +11,7 @@ def get_web_driver():
             Chrome options for headless browser is enabled.
             """
             chrome_options = Options()
+            chrome_options.add_argument("--incognito")
             chrome_options.add_argument("--headless")
             chrome_options.add_argument("--no-sandbox")
             chrome_options.add_argument("--disable-dev-shm-usage")
