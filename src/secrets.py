@@ -12,3 +12,11 @@ CLIENT_ID = secrets["CLIENT_ID"] if "CLIENT_ID" in secrets.keys() else os.getenv
 CLIENT_SECRET = secrets["CLIENT_SECRET"] if "CLIENT_SECRET" in secrets.keys() else os.getenv("CLIENT_SECRET")
 USERNAME = secrets["USERNAME"] if "USERNAME" in secrets.keys() else os.getenv("USERNAME")
 PASSWORD = secrets["PASSWORD"] if "PASSWORD" in secrets.keys() else os.getenv("PASSWORD")
+
+
+print("printing info...")
+print(PLAYLIST_ID)
+print(CLIENT_ID)
+print(CLIENT_SECRET)
+print(USERNAME)
+print(PASSWORD)
