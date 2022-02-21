@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-You have a spotify account, and a spotify developer account. In your spotify developer account create a new app, with the redirect uri of "http://127.0.0.1:9090".
+You have a spotify account, and a spotify developer account. In your spotify developer account create a new app, with the redirect uri of http://127.0.0.1:9090.
 
 Get the client_id and client_secret. You will need those later. Next get the id of the spotify playlist you'd like to currate.
 
