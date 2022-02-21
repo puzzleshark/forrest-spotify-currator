@@ -91,7 +91,6 @@ async def get_output_url(input_url, driver):
 
 
 async def main():
-    driver = get_web_driver()
 
     # create process
     proc = await asyncio.subprocess.create_subprocess_exec(
@@ -108,15 +107,16 @@ async def main():
         match = re.search('Go to the following URL: (https://.*)', line)
         if match is not None:
             url = match.group(1)
+            driver = get_web_driver()
             output_url = await get_output_url(url, driver)
             print(output_url)
+            driver.close()
             proc.stdin.write((output_url + "\n").encode())
             await proc.stdin.drain()
 
 
     await printing_task
 
-    driver.close()
     print("finished!!")
 
 
