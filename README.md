@@ -1,4 +1,4 @@
-# Spotify Forrest Music Curator
+# Spotify Forrest Music Currator
 
 ## Prerequisites
 
@@ -21,4 +21,4 @@ with the relevant information.
 
 ### Method 2
 You must build the docker container with `docker build . --tag currator`
-run `docker run -e PLAYLIST_ID='PLAYLIST_ID'  -e CLIENT_ID='<CLIENT_ID>' -e CLIENT_SECRET='<CLIENT_SECRET'> -e USERNAME='<USERNAME>' -e PASSWORD='<PASSWORD>' currator`
+run `docker run -e PLAYLIST_ID='<PLAYLIST_ID>'  -e CLIENT_ID='<CLIENT_ID>' -e CLIENT_SECRET='<CLIENT_SECRET'> -e USERNAME='<USERNAME>' -e PASSWORD='<PASSWORD>' currator`
