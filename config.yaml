@@ -5,8 +5,8 @@ slug: "forrest_spotify_currator"
 homeassistant_api: true
 hassio_api: true
 hassio_role: default
-build_from:
-  armhf: python:3.8
+#build_from:
+#  armhf: python:3.8
 arch:
   - armhf
 schema:
