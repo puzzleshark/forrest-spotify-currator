@@ -2,12 +2,10 @@ name: "Forrest Spotify Currator"
 description: "Currate a spotify playlist."
 version: "0.0.1"
 slug: "forrest_spotify_currator"
+build_from:
+  armhf: python:3.8
 arch:
-  - aarch64
-  - amd64
   - armhf
-  - armv7
-  - i386
 schema:
   playlist_id: str
   client_id: str

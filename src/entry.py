@@ -62,33 +62,6 @@ async def line_by_line(output):
             current += c
 
 
-async def get_output_url(input_url, driver):
-    driver.get(input_url)
-    while True:
-        await asyncio.sleep(3)
-        if "https://accounts.spotify.com/en/login" in driver.current_url:
-            login = driver.find_element_by_id("login-username")
-            login.clear()
-            login.send_keys(secrets.USERNAME)
-
-            await asyncio.sleep(1)
-
-            password = driver.find_element_by_id("login-password")
-            password.clear()
-            password.send_keys(secrets.PASSWORD)
-
-            await asyncio.sleep(1)
-
-            login_button = driver.find_element_by_id("login-button")
-            login_button.click()
-
-        elif "https://accounts.spotify.com/en/authorize" in driver.current_url:
-            authorize_button = driver.find_element_by_id("auth-accept")
-            authorize_button.click()
-
-        elif "http://127.0.0.1:9090" in driver.current_url:
-            return str(driver.current_url)
-
 
 async def main():
 
