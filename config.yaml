@@ -2,6 +2,8 @@ name: "Forrest Spotify Currator"
 description: "Currate a spotify playlist."
 version: "0.0.1"
 slug: "forrest_spotify_currator"
+arch:
+  - amd64
 schema:
   playlist_id: str
   client_id: str
