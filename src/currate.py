@@ -48,6 +48,8 @@ if __name__ == '__main__':
 
     print("downloaded playlist")
 
+
+
     auth = SpotifyOAuth(
         scope=["playlist-modify-public", "playlist-modify-private"],
         username=secrets.USERNAME,
