@@ -10,11 +10,9 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 
 
 ENV CONDA_DIR /opt/conda
-RUN mkdir /opt
-RUN mkdir /opt/conda
 # RUN chmod +x Miniforge3-Linux-aarch64.sh
 # RUN ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
-RUN /bin/bash ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
+RUN /bin/bash ./Miniforge3-Linux-aarch64.sh -b -p /opt
 
 ENV PATH=$CONDA_DIR/bin:$PATH
 
