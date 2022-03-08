@@ -1,12 +1,10 @@
-name: "Forrest Spotify Currator"
-description: "Currate a spotify playlist."
+name: "Forrest Spotify Curator"
+description: "Curate a spotify playlist."
 version: "0.0.1"
-slug: "forrest_spotify_currator"
+slug: "forrest_spotify_curator"
 homeassistant_api: true
 hassio_api: true
 hassio_role: default
-#build_from:
-#  armhf: python:3.8
 arch:
   - armhf
 schema:
