@@ -14,6 +14,8 @@ ENV CONDA_DIR /opt/conda
 # RUN ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
 RUN /bin/bash ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
 
+ENV PATH=$CONDA_DIR/bin:$PATH
+
 COPY requirements.txt /usr/src/requirements.txt
 RUN pip install -r /usr/src/requirements.txt
 
