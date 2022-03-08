@@ -10,8 +10,9 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 
 
 ENV CONDA_DIR /opt/conda
- RUN chmod +x Miniforge3-Linux-aarch64.sh
- RUN ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
+# RUN chmod +x Miniforge3-Linux-aarch64.sh
+# RUN ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
+RUN /bin/bash ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
 
 COPY requirements.txt /usr/src/requirements.txt
 RUN pip install -r /usr/src/requirements.txt
