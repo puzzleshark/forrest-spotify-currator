@@ -7,6 +7,8 @@ hassio_api: true
 hassio_role: default
 arch:
   - armhf
+build_from:
+  armhf: python
 schema:
   playlist_id: str
   client_id: str
