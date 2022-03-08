@@ -1,0 +1,15 @@
+name: "Forrest Spotify Curator"
+description: "Curate a spotify playlist."
+version: "0.0.1"
+slug: "forrest_spotify_curator"
+homeassistant_api: true
+hassio_api: true
+hassio_role: default
+arch:
+  - aarch64
+schema:
+  playlist_id: str
+  client_id: str
+  client_secret: str
+  username: str
+  password: str
