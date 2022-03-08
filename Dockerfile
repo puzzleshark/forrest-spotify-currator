@@ -20,5 +20,5 @@ RUN pip install -r /usr/src/requirements.txt
 COPY src /usr/src
 WORKDIR /usr/src
 
-CMD python entry.py
+CMD python currate.py
 
