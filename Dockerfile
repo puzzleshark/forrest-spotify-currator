@@ -5,7 +5,7 @@ FROM $BUILD_FROM
 #RUN apt-get update
 #RUN apt-get install ffmpeg -y
 
-apk add --update python3 py3-pip
+RUN apk add --update python3 py3-pip
 
 COPY requirements.txt /usr/src/requirements.txt
 RUN pip install -r /usr/src/requirements.txt
