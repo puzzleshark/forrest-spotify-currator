@@ -1,4 +1,2 @@
-spotdl
 spotipy
 librosa
-ruamel.yaml

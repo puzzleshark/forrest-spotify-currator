@@ -6,7 +6,7 @@ FROM $BUILD_FROM
 #RUN apt-get install ffmpeg -y
 
 COPY requirements.txt /usr/src/requirements.txt
-RUN pip3 install -r /usr/src/requirements.txt
+RUN pip install -r /usr/src/requirements.txt
 
 COPY src /usr/src
 WORKDIR /usr/src
