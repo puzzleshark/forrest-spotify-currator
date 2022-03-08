@@ -5,9 +5,9 @@ FROM $BUILD_FROM
 #RUN apt-get update
 #RUN apt-get install ffmpeg -y
 
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.11.0-Linux-aarch64.sh
+RUN wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
 
-RUN /bin/bash ./Miniconda3-py39_4.11.0-Linux-aarch64.sh -b -p /opt/conda
+RUN /bin/bash Miniconda3-latest-Linux-armv7l.sh -b -p /opt/conda
 
 ENV PATH=/opt/conda:$PATH
 
