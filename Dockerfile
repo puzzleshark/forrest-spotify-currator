@@ -10,7 +10,7 @@ RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Minif
 # RUN bash  Miniforge3-Linux-aarch64.sh
 # RUN md5sum Miniconda3-latest-Linux-armv7l.sh
  RUN chmod +x Miniforge3-Linux-aarch64.sh
- RUN ./Miniforge3-Linux-aarch64.sh
+ RUN ./Miniforge3-Linux-aarch64.sh -y
 
 COPY requirements.txt /usr/src/requirements.txt
 RUN pip install -r /usr/src/requirements.txt
