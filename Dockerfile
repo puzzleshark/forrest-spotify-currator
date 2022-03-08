@@ -7,10 +7,11 @@ FROM $BUILD_FROM
 
 # RUN wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armvhf.sh
 RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh
-# RUN bash  Miniforge3-Linux-aarch64.sh
-# RUN md5sum Miniconda3-latest-Linux-armv7l.sh
+
+
+ENV CONDA_DIR /opt/conda
  RUN chmod +x Miniforge3-Linux-aarch64.sh
- RUN ./Miniforge3-Linux-aarch64.sh -y
+ RUN ./Miniforge3-Linux-aarch64.sh -b -p /opt/conda
 
 COPY requirements.txt /usr/src/requirements.txt
 RUN pip install -r /usr/src/requirements.txt
